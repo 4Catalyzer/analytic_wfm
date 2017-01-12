@@ -902,6 +902,7 @@ def _test():
     
     
 def _test_graph():
+    import pylab
     i = 10000
     x = np.linspace(0,3.7*pi,i)
     y = (0.3*np.sin(x) + np.sin(1.3 * x) + 0.9 * np.sin(4.2 * x) + 0.06 *
@@ -914,7 +915,7 @@ def _test_graph():
     ym = [p[1] for p in _max]
     xn = [p[0] for p in _min]
     yn = [p[1] for p in _min]
-    
+
     plot = pylab.plot(x,y)
     pylab.hold(True)
     pylab.plot(xm, ym, "r+")
@@ -930,6 +931,7 @@ def _test_graph():
     pylab.show()
     
 def _test_graph_cross(window = 11):
+    import pylab
     i = 10000
     x = np.linspace(0,8.7*pi,i)
     y = (2*np.sin(x) + 0.006 *
@@ -937,17 +939,17 @@ def _test_graph_cross(window = 11):
     y *= -1
     pylab.plot(x,y)
     #pylab.show()
-    
+
     
     crossings = zero_crossings_sine_fit(y,x, smooth_window = window)
     y_cross = [0] * len(crossings)
-    
-    
+
+
     plot = pylab.plot(x,y)
     pylab.hold(True)
     pylab.plot(crossings, y_cross, "b+")
     pylab.show()
-    
+
     
     
 if __name__ == "__main__":
