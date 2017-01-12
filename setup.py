@@ -7,5 +7,6 @@ setup(
    url='https://gist.github.com/1178136.git',
    description='peak detection algorithms',
    packages=find_packages(),
-   install_requires=['logging', 'numpy', 'matplotlib', 'scipy', 'pdb' ]
+   install_requires=['numpy', 'scipy'],
+   tests_require=['matplotlib', 'pdb'],
 )
