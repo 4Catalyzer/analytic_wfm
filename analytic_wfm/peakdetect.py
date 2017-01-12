@@ -17,7 +17,6 @@
 import logging
 from math import pi, log
 import numpy as np
-import pylab
 
 from scipy import fft, ifft
 from scipy.optimize import curve_fit
