@@ -8,5 +8,5 @@ setup(
    description='peak detection algorithms',
    packages=find_packages(),
    install_requires=['numpy', 'scipy'],
-   tests_require=['matplotlib', 'pdb'],
+   tests_require=['matplotlib'],
 )
