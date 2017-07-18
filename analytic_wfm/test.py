@@ -616,9 +616,21 @@ class Test_peakdetect_misc(unittest.TestCase):
         for rec, exp in zip(indice, expected_indice):
             self.assertAlmostEqual(rec, exp, delta=1, msg=msg.format(rec, exp))
         
-    
-        
-            
+
+class TestPeakDetectNan(unittest.TestCase):
+    def test_it(self):
+        x = (list(range(500)) + list(reversed(range(500)))) * 3
+        maxes, mins = peakdetect.peakdetect(x)
+        assert mins[0][1] == 0
+        assert maxes[0][1] == 499
+        x[499] = np.nan
+        x[500] = np.nan
+        x[999] = np.nan
+        x[1000] = np.nan
+        maxes, mins = peakdetect.peakdetect(x)
+        assert mins[0][1] == 1
+        assert maxes[0][1] == 498
+
         
 #class zero_crossings(unittest.TestCase):
             
@@ -635,7 +647,8 @@ if __name__ == "__main__":
                 #Test_peakdetect_sine_locked,
                 Test_peakdetect_spline,
                 Test_peakdetect_zero_crossing,
-                Test_peakdetect_misc
+                Test_peakdetect_misc,
+                TestPeakDetectNan,
                 ]
     
     suites_list = [unittest.TestLoader().loadTestsFromTestCase(test_class) for test_class in tests_to_run]
