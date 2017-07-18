@@ -11,9 +11,9 @@
 # http://www.wtfpl.net/ for more details.
 #
 
+from . import peakdetects as peakdetect
 import analytic_wfm
 import numpy as np
-import peakdetect
 import unittest
 
 
@@ -211,7 +211,8 @@ class Test_analytic_wfm(unittest.TestCase):
         
         
         
-        
+
+@unittest.SkipTest
 class _Test_peakdetect_template(unittest.TestCase):
     func = None
     file = "Mismatch data.txt"
